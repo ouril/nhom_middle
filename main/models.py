@@ -56,7 +56,7 @@ class Person(TimeStampedModel):
     request_link = simple_char_field()
     request_number = models.SmallIntegerField()
     status = simple_char_field()
-    profile_image = models.ImageField(upload_to="static",blank=True, null=True)
+    profile_image = models.ImageField(upload_to="static", blank=True, null=True)
     manager = models.ForeignKey(
         Manager,
         models.CASCADE,
@@ -145,17 +145,16 @@ class BankAccount(TimeStampedModel):
         related_name="bankaccount"
     )
 
-
     def __str__(self):
         return f"BankAccount {self.bank_account_number}  ({self.person.name})"
 
 
 class Friends(Document):
-    friend1 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, related_name="person1")
-    friend2 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, related_name="person2")
-    friend3 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, related_name="person3")
-    friend4 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, related_name="person4")
-    friend5 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, related_name="person5")
+    friend1 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, blank=True, related_name="person1")
+    friend2 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, blank=True, related_name="person2")
+    friend3 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, blank=True, related_name="person3")
+    friend4 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, blank=True, related_name="person4")
+    friend5 = models.ForeignKey(Person, models.NOT_PROVIDED, null=True, blank=True, related_name="person5")
 
     def __str__(self):
         return f"Friends {self.person.name}"

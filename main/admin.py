@@ -6,6 +6,7 @@ from .models import *
 # from .admin_models import *
 from django.contrib.auth.admin import UserAdmin
 
+
 # admin.site.register(User, UserAdmin)
 # Register your models here.s
 # @admin.register(OrderType)
@@ -14,7 +15,7 @@ from django.contrib.auth.admin import UserAdmin
 
 
 @admin.register(State)
-class  StateAdmin(admin.ModelAdmin):
+class StateAdmin(admin.ModelAdmin):
     pass
 
 
@@ -35,6 +36,11 @@ class PassportErrorAdmin(admin.ModelAdmin):
 
 @admin.register(DriversLicence)
 class DriversLicenceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(GunDocument)
+class GunDocumentAdmin(admin.ModelAdmin):
     pass
 
 
