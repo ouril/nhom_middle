@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python_path=$(which python3)
+python_path=$(which python3.8)
 
 echo "Path to python $python_path"
 
