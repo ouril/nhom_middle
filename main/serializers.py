@@ -66,7 +66,7 @@ class PersonSerializer(serializers.ModelSerializer):
     driverslicence = DriverLicenceSerializer()
     gundocument = GunLicenceSerializer()
     friends = FriendsSerializer()
-    bankaccount = BankaccountSerializer()
+    bankaccount = BankaccountSerializer(many=True)
     blood = BloodSerializer()
 
     class Meta:

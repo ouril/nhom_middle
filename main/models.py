@@ -56,6 +56,7 @@ class Person(TimeStampedModel):
     request_link = simple_char_field()
     request_number = models.SmallIntegerField()
     status = simple_char_field()
+    profile_image = models.ImageField(upload_to="static",blank=True, null=True)
     manager = models.ForeignKey(
         Manager,
         models.CASCADE,
@@ -134,10 +135,16 @@ class Blood(Document):
         return f"Blood {self.in_base}  ({self.person.name})"
 
 
-class BankAccount(Document):
+class BankAccount(TimeStampedModel):
     bank_account_number = simple_char_field()
     balance = models.PositiveIntegerField(default=0)
     is_black = models.BooleanField(default=False)
+    person = models.ForeignKey(
+        Person,
+        models.CASCADE,
+        related_name="bankaccount"
+    )
+
 
     def __str__(self):
         return f"BankAccount {self.bank_account_number}  ({self.person.name})"
